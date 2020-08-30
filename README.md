@@ -1,6 +1,6 @@
 # homework4
 
-Hello, in this project we were tasked with creating a responsive quiz application using jQuery.
+Hello, in this project we were tasked with creating a responsive quiz application using JavaScript.
 
 The breakdown:
 

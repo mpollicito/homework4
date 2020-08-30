@@ -11,15 +11,30 @@
 <body>
     <div id="display-time"></div>
     <div id="display-question"></div>
+    <div id="container">
+        <div id="quiz" style="display: none">
+            <div id="question"></div>
+                <div id="choices">
+                <div class="choice" id="A" onclick="checkAnswer('A')"></div>
+                <div class="choice" id="B" onclick="checkAnswer('B')"></div>
+                <div class="choice" id="C" onclick="checkAnswer('C')"></div>
+            </div>
+            <div id="progress"></div>
+        </div>
+        <div id="scoreContainer" style="display: none"></div>
+    </div>
 
-    <h1 id="title">Code Quiz!</h1>
-    <h2 id="subtitle">Test your coding knowledge</h2>
+    <div>
 
-    <button id="start-quiz">Start Quiz</button>
-    <!-- <button id= "">Choice 1</button> need to add buttons for the choices -->
+    </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="script.js"></script>
+    <h1 id="title">2min Code Quiz!</h1>
+    <h2 id="subtitle">Test your coding knowledge!</h2>
+    <button onclick="displayQuiz()">Start Quiz</button>
+    <button onclick="setIndex()">Submit</button>
+    
 </body>
 
 </html>
+
+<script type="text/javascript" src="script.js"></script>

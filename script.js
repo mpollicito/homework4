@@ -1,45 +1,48 @@
-var timeLeft= 300;
-var displayTime= $("#display-time");
-var displayQuestion= $("#questions");
-var questionIndex= 0;
-var questions= [
-    {
-        question:"What color is the sky?",
-        choices:["blue", "green", "purple", "who cares"],
-        correct:"blue"
-    },
-    {
-        question:"What color is the white house?",
-        choices:["blue", "green", "white", "who cares"],
-        correct:"white"
-    },
-    {
-        question:"What color is the meaning of life?",
-        choices:["blue", "green", "purple", "pizza"],
-        correct:"pizza"
-    },
-    {
-        question:"What is ?",
-        choices:["one", "two", "three", "four"],
-        correct:"four"
-    }
+var timeLeft = 120;
+var displayTime = "#display-time";
+var displayQuestion = "#questions";
+var questionIndex = 0;
+var score = 0;
+var questions = [
+    
+    {"name":"1","properties":[{"question":"What does DOM stand for?","choiceA":"Document Order Module","choiceB":"Document Object Model","choiceC":"Documentation Orientation Music","correct":"B"}]},
+    {"name":"2","properties":[{"question":"What does Viewport do?","choiceA":"Document Order Module","choiceB":"Document Object Model","choiceC":"Documentation Orientation Music","correct":"C"}]}
+    
 ]
 
-$("#start-quiz").on("click", function() {
-    $("#start-quiz").hide()
-    $("#title").hide()
-    $("#subtitle").hide()
-    time = setInterval(countDown, 1000)
-    showQuestion()
-})
+var counter = 0;
 
-// $("#") need to add function for choices and their buttons
-
-function countDown() {
-    timeLeft --
-    displayTime.text("Seconds Remaining " +timeLeft)
+function setIndex() {
+    counter++;
+    questions.forEach(showQuestion);
 }
 
-function showQuestion() {
-    console.log(questions[questionIndex].question)
+function displayQuiz(question) {
+    console.log(question);
+    document.getElementById("title").setAttribute("class", "hide");
+    var output = document.getElementById("display-question");
+    var ele = document.createElement("div");
+    var frag = document.createDocumentFragment();
+    frag.appendChild(ele);
+    ele.setAttribute("class", "col client-item");
+
+    ele.innerHTML = "<ul>"
+        + "<li>" + JSON.parse(question.properties.question) + "</li>"
+        + "</ul>"
+        + "</div>"
+    output.appendChild(frag);
+}
+
+function showQuestion(question) {
+    console.log(counter);
+    console.log(question.name);
+    if (counter == question.name) {
+        displayQuiz(question);
+    }
+    
+}
+
+function countDown() {
+    timeLeft--;
+    displayTime.text(`Seconds remaining: ` + timeLeft);
 }
